@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="272.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorVentanaPrincipal">
+   <children>
+      <BorderPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="413.0" HBox.hgrow="ALWAYS">
+         <top>
+            <AnchorPane prefHeight="65.0" prefWidth="302.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="22.0" text="N: ">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="38.0" layoutY="16.0" prefHeight="25.0" prefWidth="210.0" promptText="Numero">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane prefHeight="325.0" prefWidth="135.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Algorithm">
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="radioAdd" layoutX="15.0" layoutY="45.0" mnemonicParsing="false" text="Add.">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="algoritmos" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="radioSearch" layoutX="15.0" layoutY="75.0" mnemonicParsing="false" text="Search." toggleGroup="$algoritmos">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="radioDelete" layoutX="15.0" layoutY="111.0" mnemonicParsing="false" text="Delete." toggleGroup="$algoritmos">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </AnchorPane>
+         </left>
+         <right>
+            <AnchorPane prefHeight="325.0" prefWidth="166.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Mode">
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="radioIterative" layoutX="14.0" layoutY="45.0" mnemonicParsing="false" text="Iterative.">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="modos" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="radioRecursive" layoutX="14.0" layoutY="72.0" mnemonicParsing="false" text="Recursive." toggleGroup="$modos">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </RadioButton>
+                  <Button layoutX="57.0" layoutY="106.0" mnemonicParsing="false" onAction="#iniciarCompetencia" text="Run!">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </right>
+      </BorderPane>
+      <BorderPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+         <center>
+            <AnchorPane prefHeight="112.0" prefWidth="289.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Timekeeper.">
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="tiempo" layoutX="14.0" layoutY="45.0" text="Aqui va el tiempo." />
+               </children>
+            </AnchorPane>
+         </center>
+         <bottom>
+            <AnchorPane prefHeight="185.0" prefWidth="289.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="ArrayList">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="109.0" layoutY="14.0" text="LinkedList">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="228.0" layoutY="14.0" text="ABB">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="tiempoArrayList" layoutX="8.0" layoutY="39.0" text="TiempoArray">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="tiempoListaEnlazada" layoutX="105.0" layoutY="39.0" text="tiempoLinked">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="tiempoABB" layoutX="211.0" layoutY="39.0" text="tiempoABB">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagenArray" fitHeight="83.0" fitWidth="61.0" layoutX="15.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imagenLista" fitHeight="82.0" fitWidth="56.0" layoutX="117.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imagenABB" fitHeight="89.0" fitWidth="60.0" layoutX="214.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+         </bottom>
+      </BorderPane>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</HBox>
