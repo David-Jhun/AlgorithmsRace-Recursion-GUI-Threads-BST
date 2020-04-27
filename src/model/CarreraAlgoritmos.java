@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class CarreraAlgoritmos {
 	
@@ -123,15 +124,65 @@ public class CarreraAlgoritmos {
 		return eliminado;
 	}
 	
-	public void iniciarAgregar( int numero ) {
+	public boolean eliminarNodoListaEnlazadaIterativo( long numero ) {
+		boolean eliminado = false;
+		if( primero != null ) {
+			if( primero.getNumero() == numero ) {
+				if( primero.getSiguiente() == null ) {
+					primero = null;
+					eliminado = true;
+				}else if( primero.getSiguiente() != null ) {
+					primero = primero.getSiguiente();
+					primero.getSiguiente().setAnterior(null);
+					eliminado = true;
+				}
+			}else {
+				ListaEnlazada anterior = null;
+				ListaEnlazada actual = primero;
+				boolean encontrado = false;
+				while( actual != null && !encontrado ) {
+					if( actual.getNumero() == numero ) {
+						encontrado = true;
+					}
+					anterior = actual;
+					actual = actual.getSiguiente();
+				}
+				if( actual != null ) {
+					if( actual.getSiguiente() == null ) {
+						anterior.setSiguiente(null);
+						eliminado = true;
+					}else if( actual.getSiguiente() != null ) {
+						actual = actual.getSiguiente();
+						anterior.setSiguiente(actual);
+						actual.setAnterior(anterior);
+						eliminado = true;
+					}
+				}
+			}
+		}
+		return eliminado;
+	}
+	
+	public void iniciarAgregarIterativo( int numero ) {
+		int iterador = 0;
+		Random generador = new Random();
+		do {
+			agregarNodoArrayListIterativo(generador.nextLong());
+			agregarNodoListaIterativo(generador.nextLong());
+			agregarNodoArbolRecursivo(generador.nextLong());
+			iterador++;
+		}while( iterador != numero );
+	}
+	
+	public void iniciarAgregarRecursivo() {
 		
 	}
 	
-	public void iniciarBuscar( int numero ) {
+	public void iniciarBuscarIterativo( int numero ) {
 		
 	}
 	
-	public void iniciarEliminar( int numero ) {
+	public void iniciarEliminarIterativo( int numero ) {
 		
 	}
 	

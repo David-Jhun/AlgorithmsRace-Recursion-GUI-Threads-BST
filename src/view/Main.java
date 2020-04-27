@@ -24,8 +24,10 @@ public class Main extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		primaryStage.setTitle("Basic Algorithms Race");
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("VentanaPrincipal.fxml"));
+		loader.setController(controlador);
 		Parent root = loader.load();
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
