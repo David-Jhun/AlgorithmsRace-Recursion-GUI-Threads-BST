@@ -69,7 +69,7 @@ public class ControladorVentanaPrincipal {
     	int numero = comprobarEntero();
     	if( radioAdd.isSelected() ) {
     		if( radioIterative.isSelected() ) {
-    			
+    			carrera.iniciarAgregarIterativo(numero);
     		}else if( radioRecursive.isSelected() ) {
     			
     		}else if( comprobarBotonesIR() == false ) {
@@ -82,7 +82,10 @@ public class ControladorVentanaPrincipal {
     		}
     	}else if( radioSearch.isSelected() ) {
     		if( radioIterative.isSelected() ) {
-    			
+    			for( int i = 0; i < numero ; i++ ) {
+    				String numero1 = "" + carrera.getVectores().get(i).getNumero();
+    				tiempo.setText(numero1);
+    			}
     		}else if( radioRecursive.isSelected() ) {
     			
     		}else if( comprobarBotonesIR() == false ) {
