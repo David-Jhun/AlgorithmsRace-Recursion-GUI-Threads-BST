@@ -5,7 +5,7 @@ public class ArbolBinario extends Nodo implements Comparable<ArbolBinario>{
 	private ArbolBinario hijoIzquierdo;
 	private ArbolBinario hijoDerecho;
 	
-	public ArbolBinario( int numero ) {
+	public ArbolBinario( long numero ) {
 		super(numero);
 		hijoIzquierdo = null;
 		hijoDerecho = null;

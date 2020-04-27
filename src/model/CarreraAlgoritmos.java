@@ -26,12 +26,12 @@ public class CarreraAlgoritmos {
 		return raiz;
 	}
 	
-	public void agregarNodoArrayListIterativo( int numero ) {
+	public void agregarNodoArrayListIterativo( long numero ) {
 		ArrayLists nodo = new ArrayLists(numero);
 		vectores.add(nodo);
 	}
 	
-	public void agregarNodoListaIterativo( int numero ) {
+	public void agregarNodoListaIterativo( long numero ) {
 		ListaEnlazada nodo = new ListaEnlazada(numero);
 		if( primero == null ) {
 			primero = nodo;
@@ -45,7 +45,7 @@ public class CarreraAlgoritmos {
 		}
 	}
 	
-	public void agregarNodoArbolRecursivo( int numero ) {
+	public void agregarNodoArbolRecursivo( long numero ) {
 		ArbolBinario nodo = new ArbolBinario(numero);
 		if( raiz == null ) {
 			raiz = nodo;
@@ -80,38 +80,79 @@ public class CarreraAlgoritmos {
 		}
 	}
 	
-	public ArrayLists buscarNodoArrayListsIterativo( int numero ) {
-		ArrayLists nodoBuscado = null;
+	public boolean buscarNodoArrayListsIterativo( long numero ) {
 		boolean encontrado = false;
 		if( !(vectores.isEmpty()) ) {
 			for( int i = 0 ; i < vectores.size() && !encontrado ; i++ ) {
 				if( vectores.get(i).getNumero() == numero ) {
-					nodoBuscado = vectores.get(i);
 					encontrado = true;
 				}
 			}
 		}
-		return nodoBuscado;
+		return encontrado;
 	}
 	
-	public ListaEnlazada buscarNodoListaEnlazadaIterativo( int numero ) {
-		ListaEnlazada nodoBuscado = null;
+	public boolean buscarNodoListaEnlazadaIterativo( long numero ) {
+		boolean encontrado = false;
 		if( primero != null ) {
 			if( primero.getNumero() == numero ) {
-				nodoBuscado = primero;
+				encontrado = true;
 			}else {
 				ListaEnlazada temporal = primero;
-				boolean encontrado = false;
 				while( temporal != null && !encontrado ) {
 					if( temporal.getNumero() == numero ) {
-						nodoBuscado = temporal;
 						encontrado = true;
 					}
 					temporal = temporal.getSiguiente();
 				}
 			}
 		}
-		return nodoBuscado;
+		return encontrado;
 	}
-
+	
+	public boolean eliminarNodoArrayListIterativo( long numero ) {
+		boolean eliminado = false;
+		if( !(vectores.isEmpty()) ) {
+			for( int i = 0 ; i < vectores.size() && !eliminado ; i++ ) {
+				if( vectores.get(i).getNumero() == numero ) {
+					vectores.remove(i);
+					eliminado = true;
+				}
+			}
+		}
+		return eliminado;
+	}
+	
+	public void iniciarAgregar( int numero ) {
+		
+	}
+	
+	public void iniciarBuscar( int numero ) {
+		
+	}
+	
+	public void iniciarEliminar( int numero ) {
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

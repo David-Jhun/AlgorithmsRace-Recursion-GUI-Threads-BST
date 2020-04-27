@@ -2,9 +2,9 @@ package model;
 
 public abstract class Nodo {
 	
-	private int numero;
+	private long numero;
 	
-	public Nodo( int numero ) {
+	public Nodo( long numero ) {
 		this.numero = numero;
 	}
 	
@@ -12,11 +12,11 @@ public abstract class Nodo {
 		numero = 0;
 	}
 	
-	public int getNumero() {
+	public long getNumero() {
 		return numero;
 	}
 	
-	public void setNumero( int numero ) {
+	public void setNumero( long numero ) {
 		this.numero = numero;
 	}
 	

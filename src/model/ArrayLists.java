@@ -2,7 +2,7 @@ package model;
 
 public class ArrayLists extends Nodo{
 
-	public ArrayLists( int numero ) {
+	public ArrayLists( long numero ) {
 		super(numero);
 	}
 	

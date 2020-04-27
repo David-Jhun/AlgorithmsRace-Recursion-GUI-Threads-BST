@@ -5,7 +5,7 @@ public class ListaEnlazada extends Nodo{
 	private ListaEnlazada anterior;
 	private ListaEnlazada siguiente;
 	
-	public ListaEnlazada( int numero ) {
+	public ListaEnlazada( long numero ) {
 		super(numero);
 		anterior = null;
 		siguiente = null;
