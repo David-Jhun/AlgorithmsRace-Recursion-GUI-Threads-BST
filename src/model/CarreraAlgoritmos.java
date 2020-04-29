@@ -46,6 +46,33 @@ public class CarreraAlgoritmos {
 		}
 	}
 	
+	public void agregarNodoArbolIterativo( long numero ) {
+		ArbolBinario nodo = new ArbolBinario(numero);
+		if( raiz == null ) {
+			raiz = nodo;
+		}else {
+			ArbolBinario actual = raiz;
+			ArbolBinario padre = null;
+			boolean agregado = false;
+			while( !agregado ) {
+				padre = actual;
+				if( actual.getNumero() > numero ) {
+					actual = actual.getHijoIzquierdo();
+					if( actual == null ) {
+						padre.setHijoIzquierdo(nodo);
+						agregado = true;
+					}
+				}else if( actual.getNumero() < numero ){
+					actual = actual.getHijoDerecho();
+					if( actual == null ) {
+						padre.setHijoDerecho(nodo);
+						agregado = true;
+					}
+				}
+			}
+		}
+	}
+	
 	public void agregarNodoArbolRecursivo( long numero ) {
 		ArbolBinario nodo = new ArbolBinario(numero);
 		if( raiz == null ) {
@@ -193,6 +220,7 @@ public class CarreraAlgoritmos {
 		do {
 			agregarNodoArrayList(generador.nextLong());
 			agregarNodoListaIterativo(generador.nextLong());
+			agregarNodoArbolIterativo(generador.nextLong());
 			iterador++;
 		}while( iterador != numero );
 	}
@@ -238,7 +266,7 @@ public class CarreraAlgoritmos {
 	
 	public void iniciarEliminarRecursivo( int numero ) {
 		int iterador = 0;
-		Random generador = new Random();
+		//Random generador = new Random();
 		do {
 			iterador++;
 		}while( iterador != numero );
