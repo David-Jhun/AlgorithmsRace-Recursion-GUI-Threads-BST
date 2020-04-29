@@ -106,39 +106,44 @@
          <bottom>
             <AnchorPane prefHeight="185.0" prefWidth="289.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="14.0" layoutY="14.0" text="ArrayList">
+                  <Label layoutX="15.0" layoutY="41.0" text="ArrayList">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="109.0" layoutY="14.0" text="LinkedList">
+                  <Label layoutX="109.0" layoutY="41.0" text="LinkedList">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="228.0" layoutY="14.0" text="ABB">
+                  <Label layoutX="228.0" layoutY="41.0" text="ABB">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="tiempoArrayList" layoutX="8.0" layoutY="39.0" text="TiempoArray">
+                  <Label fx:id="tiempoArrayList" layoutX="9.0" layoutY="69.0" text="TiempoArray">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label fx:id="tiempoListaEnlazada" layoutX="105.0" layoutY="39.0" text="tiempoLinked">
+                  <Label fx:id="tiempoListaEnlazada" layoutX="105.0" layoutY="69.0" text="tiempoLinked">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label fx:id="tiempoABB" layoutX="211.0" layoutY="39.0" text="tiempoABB">
+                  <Label fx:id="tiempoABB" layoutX="211.0" layoutY="69.0" text="tiempoABB">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="imagenArray" fitHeight="83.0" fitWidth="61.0" layoutX="15.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="imagenLista" fitHeight="82.0" fitWidth="56.0" layoutX="117.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="imagenABB" fitHeight="89.0" fitWidth="60.0" layoutX="214.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imagenArray" fitHeight="83.0" fitWidth="61.0" layoutX="16.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imagenLista" fitHeight="82.0" fitWidth="56.0" layoutX="117.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imagenABB" fitHeight="79.0" fitWidth="60.0" layoutX="214.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="14.0" layoutY="14.0" text="Final Results.">
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </bottom>

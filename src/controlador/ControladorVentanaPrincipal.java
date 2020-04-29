@@ -71,14 +71,10 @@ public class ControladorVentanaPrincipal {
     		if( radioIterative.isSelected() ) {
     			carrera.iniciarAgregarIterativo(numero);
     		}else if( radioRecursive.isSelected() ) {
-    			
+    			carrera.iniciarAgregarRecursivo(numero);
     		}else if( comprobarBotonesIR() == false ) {
     			limpiarRadioButtons();
-    			Alert alerta = new Alert(AlertType.INFORMATION);
-        		alerta.setTitle("Precaucion.");
-        		alerta.setHeaderText(null);
-        		alerta.setContentText("Por favor seleccione un algoritmo y un modo de carrera.");
-        		alerta.show();
+    			iniciarVentanaInformacion();
     		}
     	}else if( radioSearch.isSelected() ) {
     		if( radioIterative.isSelected() ) {
@@ -87,35 +83,23 @@ public class ControladorVentanaPrincipal {
     				tiempo.setText(numero1);
     			}
     		}else if( radioRecursive.isSelected() ) {
-    			
+    			carrera.iniciarBuscarRecursivo(numero);
     		}else if( comprobarBotonesIR() == false ) {
     			limpiarRadioButtons();
-    			Alert alerta = new Alert(AlertType.INFORMATION);
-        		alerta.setTitle("Precaucion.");
-        		alerta.setHeaderText(null);
-        		alerta.setContentText("Por favor seleccione un algoritmo y un modo de carrera.");
-        		alerta.show();
+    			iniciarVentanaInformacion();
     		}
     	}else if( radioDelete.isSelected() ) {
     		if( radioIterative.isSelected() ) {
-    			
+    			carrera.iniciarEliminarIterativo(numero);
     		}else if( radioRecursive.isSelected() ) {
-    			
+    			carrera.iniciarEliminarRecursivo(numero);
     		}else if( comprobarBotonesIR() == false ) {
     			limpiarRadioButtons();
-    			Alert alerta = new Alert(AlertType.INFORMATION);
-        		alerta.setTitle("Precaucion.");
-        		alerta.setHeaderText(null);
-        		alerta.setContentText("Por favor seleccione un algoritmo y un modo de carrera.");
-        		alerta.show();
+    			iniciarVentanaInformacion();
     		}
     	}else if( comprobarBotonesASD() == false && comprobarBotonesIR() == false ) {
     		limpiarRadioButtons();
-    		Alert alerta = new Alert(AlertType.INFORMATION);
-    		alerta.setTitle("Precaucion.");
-    		alerta.setHeaderText(null);
-    		alerta.setContentText("Por favor seleccione un algoritmo y un modo de carrera.");
-    		alerta.show();
+    		iniciarVentanaInformacion();
     	}
     	limpiarRadioButtons();
     }
@@ -167,6 +151,14 @@ public class ControladorVentanaPrincipal {
 		radioDelete.setSelected(false);
 		radioIterative.setSelected(false);
 		radioRecursive.setSelected(false);
+    }
+    
+    public void iniciarVentanaInformacion() {
+    	Alert alerta = new Alert(AlertType.INFORMATION);
+		alerta.setTitle("Precaucion.");
+		alerta.setHeaderText(null);
+		alerta.setContentText("Por favor seleccione un algoritmo y un modo de carrera.");
+		alerta.show();
     }
 
 }
