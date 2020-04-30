@@ -73,6 +73,23 @@ public class CarreraAlgoritmos {
 		}
 	}
 	
+	public void agregarNodoListaRecursivo( long numero ) {
+		ListaEnlazada nodo = new ListaEnlazada(numero);
+		if( primero == null ) {
+			primero = nodo;
+		}else {
+			agregarNodoListaRecursivo(nodo, primero.getSiguiente());
+		}
+	}
+	
+	private void agregarNodoListaRecursivo( ListaEnlazada nodo, ListaEnlazada actual ) {
+		if( actual == null ) {
+			actual = nodo;
+		}else {
+			agregarNodoListaRecursivo(nodo, actual.getSiguiente());
+		}
+	}
+	
 	public void agregarNodoArbolRecursivo( long numero ) {
 		ArbolBinario nodo = new ArbolBinario(numero);
 		if( raiz == null ) {
