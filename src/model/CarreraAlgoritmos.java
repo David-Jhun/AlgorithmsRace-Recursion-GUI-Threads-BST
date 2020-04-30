@@ -155,15 +155,45 @@ public class CarreraAlgoritmos {
 		return encontrado;
 	}
 	
-	public boolean buscarNodoArrayListsRecursivo( long numero, int indice ) throws IndexOutOfBoundsException{
+	public boolean buscarNodoArbolIterativo( long numero ) {
 		boolean encontrado = false;
-		if( indice > vectores.size() ) {
-			throw new IndexOutOfBoundsException();
-		}else if( indice < vectores.size() ){
-			if( vectores.get(indice).getNumero() == numero ) {
+		if( raiz != null ) {
+			if( raiz.getNumero() == numero ) {
 				encontrado = true;
 			}else {
-				encontrado = buscarNodoArrayListsRecursivo(numero, indice++, vectores);
+				boolean terminado = false;
+				ArbolBinario temporal = raiz;
+				while( !( temporal.getNumero() == numero ) && !terminado ) {
+					if( temporal.getNumero() < numero ) {
+						temporal = temporal.getHijoIzquierdo();
+					}else {
+						temporal = temporal.getHijoDerecho();
+					}
+					if( temporal == null ) {
+						terminado = true;
+					}
+				}
+				if( temporal != null ) {
+					if( temporal.getNumero() == numero ) {
+						encontrado = true;
+					}
+				}
+			}
+		}
+		return encontrado;
+	}
+	
+	public boolean buscarNodoArrayListsRecursivo( long numero, int indice ) throws IndexOutOfBoundsException{
+		boolean encontrado = false;
+		if( !(vectores.isEmpty()) ) {
+			if( indice > vectores.size() ) {
+				throw new IndexOutOfBoundsException();
+			}else if( indice < vectores.size() ){
+				if( vectores.get(indice).getNumero() == numero ) {
+					encontrado = true;
+				}else {
+					encontrado = buscarNodoArrayListsRecursivo(numero, indice++, vectores);
+				}
 			}
 		}
 		return encontrado;
@@ -171,13 +201,15 @@ public class CarreraAlgoritmos {
 	
 	private boolean buscarNodoArrayListsRecursivo( long numero, int avance, ArrayList<ArrayLists> buscarAqui ) throws IndexOutOfBoundsException {
 		boolean encontrado = false;
-		if( avance > vectores.size() ) {
-			throw new IndexOutOfBoundsException();
-		}else if( avance < vectores.size() ) {
-			if( vectores.get(avance).getNumero() == numero ) {
-				encontrado = true;
-			}else {
-				encontrado = buscarNodoArrayListsRecursivo(numero, avance++, vectores);
+		if( !( vectores.isEmpty() ) ) {
+			if( avance > vectores.size() ) {
+				throw new IndexOutOfBoundsException();
+			}else if( avance < vectores.size() ) {
+				if( vectores.get(avance).getNumero() == numero ) {
+					encontrado = true;
+				}else {
+					encontrado = buscarNodoArrayListsRecursivo(numero, avance++, vectores);
+				}
 			}
 		}
 		return encontrado;
@@ -185,44 +217,52 @@ public class CarreraAlgoritmos {
 	
 	public boolean buscarNodoListaRecursivo( long numero ) {
 		boolean encontrado = false;
-		if( primero.getNumero() == numero ) {
-			encontrado = true;
-		}else {
-			encontrado = buscarNodoListaRecursivo(numero, primero.getSiguiente());
+		if( primero != null ) {
+			if( primero.getNumero() == numero ) {
+				encontrado = true;
+			}else {
+				encontrado = buscarNodoListaRecursivo(numero, primero.getSiguiente());
+			}
 		}
 		return encontrado;
 	}
 	
 	private boolean buscarNodoListaRecursivo( long numero, ListaEnlazada actual ) {
 		boolean encontrado = false;
-		if( actual.getNumero() == numero ) {
-			encontrado = true;
-		}else {
-			encontrado = buscarNodoListaRecursivo(numero, actual.getSiguiente());
+		if( actual != null ){
+			if( actual.getNumero() == numero ) {
+				encontrado = true;
+			}else {
+				encontrado = buscarNodoListaRecursivo(numero, actual.getSiguiente());
+			}
 		}
 		return encontrado;
 	}
 	
 	public boolean buscarNodoArbolRecursivo( long numero ) {
 		boolean encontrado = false;
-		if( raiz.getNumero() == numero ) {
-			encontrado = true;
-		}else if( raiz.getNumero() < numero ) {
-			encontrado = buscarNodoArbolRecursivo(numero, raiz.getHijoIzquierdo());
-		}else {
-			encontrado = buscarNodoArbolRecursivo(numero, raiz.getHijoDerecho());
+		if( raiz != null ) {
+			if( raiz.getNumero() == numero ) {
+				encontrado = true;
+			}else if( raiz.getNumero() < numero ) {
+				encontrado = buscarNodoArbolRecursivo(numero, raiz.getHijoIzquierdo());
+			}else {
+				encontrado = buscarNodoArbolRecursivo(numero, raiz.getHijoDerecho());
+			}
 		}
 		return encontrado;
 	}
 	
 	private boolean buscarNodoArbolRecursivo( long numero, ArbolBinario actual ) {
 		boolean encontrado = false;
-		if( actual.getNumero() == numero ) {
-			encontrado = true;
-		}else if( actual.getNumero() < numero ) {
-			encontrado = buscarNodoArbolRecursivo(numero, actual.getHijoIzquierdo());
-		}else {
-			encontrado = buscarNodoArbolRecursivo(numero, actual.getHijoDerecho());
+		if( actual != null ) {
+			if( actual.getNumero() == numero ) {
+				encontrado = true;
+			}else if( actual.getNumero() < numero ) {
+				encontrado = buscarNodoArbolRecursivo(numero, actual.getHijoIzquierdo());
+			}else {
+				encontrado = buscarNodoArbolRecursivo(numero, actual.getHijoDerecho());
+			}
 		}
 		return encontrado;
 	}
@@ -307,6 +347,7 @@ public class CarreraAlgoritmos {
 		do {
 			buscarNodoArrayListsIterativo(generador.nextLong());
 			buscarNodoListaIterativo(generador.nextLong());
+			buscarNodoArbolIterativo(generador.nextLong());
 			iterador++;
 		}while( iterador != numero );
 	}
@@ -315,6 +356,7 @@ public class CarreraAlgoritmos {
 		int iterador = 0;
 		Random generador = new Random();
 		do {
+			buscarNodoArrayListsRecursivo(generador.nextLong(), generador.nextInt(vectores.size()));
 			buscarNodoListaRecursivo(generador.nextLong());
 			buscarNodoArbolRecursivo(generador.nextLong());
 			iterador++;

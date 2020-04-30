@@ -78,10 +78,7 @@ public class ControladorVentanaPrincipal {
     		}
     	}else if( radioSearch.isSelected() ) {
     		if( radioIterative.isSelected() ) {
-    			for( int i = 0; i < numero ; i++ ) {
-    				String numero1 = "" + carrera.getVectores().get(i).getNumero();
-    				tiempo.setText(numero1);
-    			}
+    			carrera.iniciarBuscarIterativo(numero);
     		}else if( radioRecursive.isSelected() ) {
     			carrera.iniciarBuscarRecursivo(numero);
     		}else if( comprobarBotonesIR() == false ) {
