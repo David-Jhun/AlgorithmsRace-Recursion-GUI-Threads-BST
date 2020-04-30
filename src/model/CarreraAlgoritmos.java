@@ -137,7 +137,7 @@ public class CarreraAlgoritmos {
 		return encontrado;
 	}
 	
-	public boolean buscarNodoListaEnlazadaIterativo( long numero ) {
+	public boolean buscarNodoListaIterativo( long numero ) {
 		boolean encontrado = false;
 		if( primero != null ) {
 			if( primero.getNumero() == numero ) {
@@ -151,6 +151,54 @@ public class CarreraAlgoritmos {
 					temporal = temporal.getSiguiente();
 				}
 			}
+		}
+		return encontrado;
+	}
+	
+	public boolean buscarNodoArrayListsRecursivo( long numero, int indice ) throws IndexOutOfBoundsException{
+		boolean encontrado = false;
+		if( indice > vectores.size() ) {
+			throw new IndexOutOfBoundsException();
+		}else if( indice < vectores.size() ){
+			if( vectores.get(indice).getNumero() == numero ) {
+				encontrado = true;
+			}else {
+				encontrado = buscarNodoArrayListsRecursivo(numero, indice++, vectores);
+			}
+		}
+		return encontrado;
+	}
+	
+	private boolean buscarNodoArrayListsRecursivo( long numero, int avance, ArrayList<ArrayLists> buscarAqui ) throws IndexOutOfBoundsException {
+		boolean encontrado = false;
+		if( avance > vectores.size() ) {
+			throw new IndexOutOfBoundsException();
+		}else if( avance < vectores.size() ) {
+			if( vectores.get(avance).getNumero() == numero ) {
+				encontrado = true;
+			}else {
+				encontrado = buscarNodoArrayListsRecursivo(numero, avance++, vectores);
+			}
+		}
+		return encontrado;
+	}
+	
+	public boolean buscarNodoListaRecursivo( long numero ) {
+		boolean encontrado = false;
+		if( primero.getNumero() == numero ) {
+			encontrado = true;
+		}else {
+			encontrado = buscarNodoListaRecursivo(numero, primero.getSiguiente());
+		}
+		return encontrado;
+	}
+	
+	private boolean buscarNodoListaRecursivo( long numero, ListaEnlazada actual ) {
+		boolean encontrado = false;
+		if( actual.getNumero() == numero ) {
+			encontrado = true;
+		}else {
+			encontrado = buscarNodoListaRecursivo(numero, actual.getSiguiente());
 		}
 		return encontrado;
 	}
@@ -247,6 +295,7 @@ public class CarreraAlgoritmos {
 		Random generador = new Random();
 		do {
 			agregarNodoArrayList(generador.nextLong());
+			agregarNodoListaRecursivo(generador.nextLong());
 			agregarNodoArbolRecursivo(generador.nextLong());
 			iterador++;
 		}while( iterador != numero );
@@ -257,7 +306,7 @@ public class CarreraAlgoritmos {
 		Random generador = new Random();
 		do {
 			buscarNodoArrayListsIterativo(generador.nextLong());
-			buscarNodoListaEnlazadaIterativo(generador.nextLong());
+			buscarNodoListaIterativo(generador.nextLong());
 			iterador++;
 		}while( iterador != numero );
 	}
@@ -266,6 +315,7 @@ public class CarreraAlgoritmos {
 		int iterador = 0;
 		Random generador = new Random();
 		do {
+			buscarNodoListaRecursivo(generador.nextLong());
 			buscarNodoArbolRecursivo(generador.nextLong());
 			iterador++;
 		}while( iterador != numero );
