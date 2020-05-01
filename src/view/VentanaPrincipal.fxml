@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.image.Image?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="272.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -136,9 +137,21 @@
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="imagenArray" fitHeight="83.0" fitWidth="61.0" layoutX="16.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="imagenLista" fitHeight="82.0" fitWidth="56.0" layoutX="117.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="imagenABB" fitHeight="79.0" fitWidth="60.0" layoutX="214.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imagenArray" fitHeight="83.0" fitWidth="61.0" layoutX="16.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+                  		<image>
+                  			<Image url="@../../imagenes/sejo.png"/>
+                  		</image>
+                  </ImageView>
+                  <ImageView fx:id="imagenLista" fitHeight="82.0" fitWidth="56.0" layoutX="117.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+                  		<image>
+                  			<Image url="@../../imagenes/uchiha.png"/>
+                  		</image>
+                  </ImageView>
+                  <ImageView fx:id="imagenABB" fitHeight="79.0" fitWidth="60.0" layoutX="214.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+                  		<image>
+                  			<Image url="@../../imagenes/uzumaki.png"/>
+                  		</image>
+                  </ImageView>
                   <Label layoutX="14.0" layoutY="14.0" text="Final Results.">
                      <font>
                         <Font name="Arial Bold" size="16.0" />

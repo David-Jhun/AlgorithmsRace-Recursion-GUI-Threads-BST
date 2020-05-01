@@ -1,5 +1,7 @@
 package controlador;
 
+import java.io.File;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -8,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.CarreraAlgoritmos;
 
@@ -148,6 +151,10 @@ public class ControladorVentanaPrincipal {
 		radioDelete.setSelected(false);
 		radioIterative.setSelected(false);
 		radioRecursive.setSelected(false);
+    }
+    
+    public void iniciarImagenes() {
+    	imagenArray = new ImageView(new Image(new File("imagenes/senju.png").toURI().toString()));
     }
     
     public void iniciarVentanaInformacion() {
