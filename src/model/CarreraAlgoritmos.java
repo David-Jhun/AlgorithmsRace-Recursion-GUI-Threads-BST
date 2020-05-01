@@ -201,14 +201,14 @@ public class CarreraAlgoritmos {
 	
 	private boolean buscarNodoArrayListsRecursivo( long numero, int avance, ArrayList<ArrayLists> buscarAqui ) throws IndexOutOfBoundsException {
 		boolean encontrado = false;
-		if( !( vectores.isEmpty() ) ) {
+		if( !( buscarAqui.isEmpty() ) ) {
 			if( avance > vectores.size() ) {
 				throw new IndexOutOfBoundsException();
-			}else if( avance < vectores.size() ) {
-				if( vectores.get(avance).getNumero() == numero ) {
+			}else if( avance < buscarAqui.size() ) {
+				if( buscarAqui.get(avance).getNumero() == numero ) {
 					encontrado = true;
 				}else {
-					encontrado = buscarNodoArrayListsRecursivo(numero, avance++, vectores);
+					encontrado = buscarNodoArrayListsRecursivo(numero, avance++, buscarAqui);
 				}
 			}
 		}
@@ -319,6 +319,40 @@ public class CarreraAlgoritmos {
 		return eliminado;
 	}
 	
+	public boolean eliminarNodoArrayListsRecursivo( long numero, int indice ) throws IndexOutOfBoundsException{
+		boolean eliminado = false;
+		if( !(vectores.isEmpty()) ) {
+			if( indice > vectores.size() ) {
+				throw new IndexOutOfBoundsException();
+			}else if( indice < vectores.size() ){
+				if( vectores.get(indice).getNumero() == numero ) {
+					vectores.remove(indice);
+					eliminado = true;
+				}else {
+					eliminado = eliminarNodoArrayListsRecursivo(numero, indice++, vectores);
+				}
+			}
+		}
+		return eliminado;
+	}
+	
+	private boolean eliminarNodoArrayListsRecursivo( long numero, int indice, ArrayList<ArrayLists> buscaAqui ) throws IndexOutOfBoundsException{
+		boolean eliminado = false;
+		if( !( buscaAqui.isEmpty() ) ) {
+			if( indice > buscaAqui.size() ) {
+				throw new IndexOutOfBoundsException();
+			}else if( indice < buscaAqui.size() ){
+				if( buscaAqui.get(indice).getNumero() == numero ) {
+					buscaAqui.remove(indice);
+					eliminado = true;
+				}else {
+					eliminado = eliminarNodoArrayListsRecursivo(numero, indice++, buscaAqui);
+				}
+			}
+		}
+		return eliminado;
+	}
+	
 	public void iniciarAgregarIterativo( int numero ) {
 		int iterador = 0;
 		Random generador = new Random();
@@ -375,8 +409,9 @@ public class CarreraAlgoritmos {
 	
 	public void iniciarEliminarRecursivo( int numero ) {
 		int iterador = 0;
-		//Random generador = new Random();
+		Random generador = new Random();
 		do {
+			eliminarNodoArrayListsRecursivo(generador.nextLong(), generador.nextInt(vectores.size()));
 			iterador++;
 		}while( iterador != numero );
 	}
