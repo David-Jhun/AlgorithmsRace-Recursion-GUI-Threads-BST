@@ -355,7 +355,7 @@ public class CarreraAlgoritmos {
 		int iterador = 0;
 		Random generador = new Random();
 		do {
-			//buscarNodoArrayListsRecursivo(generador.nextLong(), generador.nextInt(vectores.size()), vectores);
+			buscarNodoArrayListsRecursivo(generador.nextLong(), generador.nextInt(vectores.size()), vectores);
 			buscarNodoListaRecursivo(generador.nextLong());
 			buscarNodoArbolRecursivo(generador.nextLong());
 			iterador++;
